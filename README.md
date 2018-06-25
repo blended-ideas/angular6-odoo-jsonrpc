@@ -27,7 +27,7 @@ Import `OdooRPCService` into component
 
 ```typescript
 import { Component } from '@angular/core';
-import { OdooRPCService } from 'angular5-odoo-jsonrpc';
+import { Ng6OdooRPCService } from 'angular6-odoo-jsonrpc';
 ```
 
 Add provider in app component
@@ -35,7 +35,7 @@ Add provider in app component
 ```typescript
 @Component({
     ...
-    providers: [OdooRPCService]
+    providers: [Ng6OdooRPCService],
 })
 ```
 
@@ -45,16 +45,18 @@ Initialize configuration in `constructor` of component
 
 export class OdooClientExampleComponent {
 
-    constructor(odooRPC: OdooRPCService){
+    constructor(private odooRPC: Ng6OdooRPCService) {
+    }
+  
+    ngOnInit() {
         this.odooRPC.init({
-            odoo_server: "https://odoo-server-example",
-            http_auth: "username:password" // optional
+            odoo_server: 'https://odoo-server-example',
+            http_auth: 'username:password' // optional
         });
         this.odooRPC.login('db_example', 'username', 'password').then(res => {
-            console.log('login success');
-        }).catch( err => {
+            console.log('login success');}).catch( err => {
             console.error('login failed', err);
-        })
+        });
     }
 
     ...

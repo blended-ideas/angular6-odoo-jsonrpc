@@ -27,7 +27,7 @@ class Cookies { // cookies doesn't work with Android default browser / Ionic
 @Injectable({
   providedIn: 'root'
 })
-export class Angular6OdooJsonrpcService {
+export class Ng6OdooRPCService {
   private cookies: Cookies;
   private uniq_id_counter = 0;
   private shouldManageSessionId = false; // try without first
