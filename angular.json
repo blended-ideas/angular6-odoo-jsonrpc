@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "angular6-odoo-jsonrpc": {
+      "root": "projects/angular6-odoo-jsonrpc",
+      "sourceRoot": "projects/angular6-odoo-jsonrpc/src",
+      "projectType": "library",
+      "prefix": "a6oj",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular6-odoo-jsonrpc/tsconfig.lib.json",
+            "project": "projects/angular6-odoo-jsonrpc/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angular6-odoo-jsonrpc/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular6-odoo-jsonrpc/src/test.ts",
+            "tsConfig": "projects/angular6-odoo-jsonrpc/tsconfig.spec.json",
+            "karmaConfig": "projects/angular6-odoo-jsonrpc/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular6-odoo-jsonrpc/tsconfig.lib.json",
+              "projects/angular6-odoo-jsonrpc/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng6-odoo-jsonrpc"

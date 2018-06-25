@@ -1,27 +1,64 @@
-# Ng6OdooJsonrpc
+# Ng6OdooJsonrpc / Angular6-odoo-jsonrpc
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project is a port [angular5-odoorpc](https://github.com/agenterp/angular5-odoo-jsonrpc).
 
-## Development server
+Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## angular6-odoo-jsonrpc
+JSON OdooRPC for Angular 6
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
 
-## Build
+`npm install --save angular5-odoo-jsonrpc`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Functions list
 
-## Running unit tests
+- `login(db, user, pass)`
+- `logout(force)`
+- `getDbList() // doesn't work with odoo >= 9.0`
+- `searchRead(model, domain, fields)`
+- `call(model, method, args, kwargs)`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### How to use
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Import `OdooRPCService` into component
 
-## Further help
+```typescript
+import { Component } from '@angular/core';
+import { OdooRPCService } from 'angular5-odoo-jsonrpc';
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Add provider in app component
+
+```typescript
+@Component({
+    ...
+    providers: [OdooRPCService]
+})
+```
+
+Initialize configuration in `constructor` of component
+
+```typescript
+
+export class OdooClientExampleComponent {
+
+    constructor(odooRPC: OdooRPCService){
+        this.odooRPC.init({
+            odoo_server: "https://odoo-server-example",
+            http_auth: "username:password" // optional
+        });
+        this.odooRPC.login('db_example', 'username', 'password').then(res => {
+            console.log('login success');
+        }).catch( err => {
+            console.error('login failed', err);
+        })
+    }
+
+    ...
+
+}
+
+```

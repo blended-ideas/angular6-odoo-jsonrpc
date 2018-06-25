@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular6-odoo-jsonrpc": [
+        "dist/angular6-odoo-jsonrpc"
+      ],
+      "angular6-odoo-jsonrpc/*": [
+        "dist/angular6-odoo-jsonrpc/*"
+      ]
+    }
   }
 }
