@@ -10,7 +10,7 @@ JSON OdooRPC for Angular 6
 
 ### Installation
 
-`npm install --save angular5-odoo-jsonrpc`
+`npm install --save angular6-odoo-jsonrpc`
 
 ### Functions list
 
