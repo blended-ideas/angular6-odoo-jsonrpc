@@ -58,21 +58,9 @@ export class OdooClientExampleComponent {
             console.error('login failed', err);
         });
     }
+
     ...
+
 }
 
 ```
-
----
-# For Developers
-
-Fork the library.
-
-Make required changes to /projects/angular6-odoo-jsonrpc
-
-Run the command
-`ng build --prod --project=angular6-odoo-jsonrpc`
-
-Copy dist/angular6-odoo-jsonrpc to your project's node_modules and run your project.
-
-##### PS: Pull requests are welcome provided they don't mess up current functionality.
